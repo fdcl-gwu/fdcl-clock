@@ -54,22 +54,22 @@ public:
 
     /** \fn void init_timer(void)
      * Initialize the timer. Timer is used to get the time difference between
-     * two consecutive calls of \fn get_dt or \fn get_dt_millis. This must be
-     * called before using \fn get_dt or \fn get_dt_millis.
+     * two consecutive calls of get_dt() or get_dt_millis(). This must be
+     * called before using get_dt() or get_dt_millis().
      * This does not reset the epoch.
      */
     void init_timer(void);
 
     /** \fn double get_dt(void)
-     * Return the time elapsed from the last call to \fn get_dt or 
-     * \fn init_timer, in seconds.
+     * Return the time elapsed from the last call to get_dt() or 
+     * init_timer(), in seconds.
      * \return dt Time elapsed, in seconds.
      */
     double get_dt(void);
 
     /** \fn double get_dt_millis(void)
-     * Return the time elapsed from the last call to \fn get_dt_millis or 
-     * \fn init_timer, in milliseconds.
+     * Return the time elapsed from the last call to get_dt_millis() or 
+     * init_timer(), in milliseconds.
      * \return dt Time elapsed, in milliseconds.
      */
     double get_dt_millis(void);

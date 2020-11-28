@@ -17,7 +17,7 @@ add_library(fdcl_clock STATIC ${fdcl_clock_src})
 
 ## Compile example. ############################################################
 set(fdcl_clock_src
-    src/main.cpp
+    src/test_fdcl_clock.cpp
 )
 add_executable(test_fdcl_clock ${fdcl_clock_src})
 target_link_libraries(test_fdcl_clock

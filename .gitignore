@@ -1,6 +1,7 @@
 # Created by https://www.gitignore.io/api/c,ros,tex,vim,c++,macos,latex,linux,matlab,python,windows,libreoffice,sublimetext,microsoftoffice,archlinuxpackages
 
 /build
+/docs/latex
 
 # VS Code
 .vscode
