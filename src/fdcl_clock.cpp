@@ -30,10 +30,22 @@ void fdcl::Clock::reset(void)
 {
     clock_gettime(CLOCK_REALTIME, &tspec_init_);
 
-    t0_millis_ = ((double)tspec_init_.tv_sec \
-        + ((double)tspec_init_.tv_nsec) / 1.0e9) * 1.0e3;
     t0_seconds_ = (double)tspec_init_.tv_sec \
         + ((double)tspec_init_.tv_nsec) / 1.0e9;
+    t0_millis_ = t0_seconds_ * 1.0e3;
+    t0_ns_ = t0_seconds_ * 1.0e9;
+}
+
+
+double fdcl::Clock::get_ns(void)
+{
+    double t;
+    clock_gettime(CLOCK_REALTIME, &tspec_curr_);
+    t = ((double)tspec_curr_.tv_sec \
+        + ((double)tspec_curr_.tv_nsec) / 1.0e9) * 1.0e9;
+    t -= t0_ns_;
+
+    return t;
 }
 
 
