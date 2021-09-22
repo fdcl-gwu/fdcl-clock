@@ -7,6 +7,7 @@
 int main (void)
 {
     fdcl::Clock Clock("Main Timer");
+    double t_ns = 0.0;
     double t_millis = 0.0;
     double t_seconds = 0.0;
 
@@ -19,11 +20,13 @@ int main (void)
     int sleep_millis = 10;
     usleep(sleep_millis * 1000);
 
+    t_ns= Clock.get_ns();
     t_millis = Clock.get_millis();
     t_seconds = Clock.get_seconds();
 
     std::cout << "\nManual delay of 10 ms:\n"
-        << "Millis = " << t_millis 
+        << "Nanos" << t_ns 
+        << "\tMillis = " << t_millis 
         << "\tSeconds = " << t_seconds
         << std::endl;
 
@@ -31,11 +34,13 @@ int main (void)
     sleep_millis = 90;
     usleep(sleep_millis * 1000);
 
+    t_ns = Clock.get_ns();
     t_millis = Clock.get_millis();
     t_seconds = Clock.get_seconds();
     
     std::cout << "\nManual delay of additional 90 ms (total 100 ms):\n"
-        << "Millis = " << t_millis
+        << "Nanos= " << t_ns
+        << "\tMillis = " << t_millis
         << "\tSeconds = " << t_seconds
         << std::endl;
 
@@ -58,6 +63,7 @@ int main (void)
     std::cout << "Total run time: " 
         << Clock.get_seconds() << " seconds or " 
         << Clock.get_millis() << " ms" 
+        << Clock.get_ns() << " ns" 
         << std::endl;
 
     return 0;
