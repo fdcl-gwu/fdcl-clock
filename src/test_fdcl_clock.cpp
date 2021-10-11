@@ -7,7 +7,7 @@
 int main (void)
 {
     fdcl::Clock Clock("Main Timer");
-    double t_ns = 0.0;
+    unsigned long long t_ns = 0;
     double t_millis = 0.0;
     double t_seconds = 0.0;
 
@@ -20,7 +20,7 @@ int main (void)
     int sleep_millis = 10;
     usleep(sleep_millis * 1000);
 
-    t_ns= Clock.get_ns();
+    t_ns = Clock.get_ns();
     t_millis = Clock.get_millis();
     t_seconds = Clock.get_seconds();
 
@@ -39,7 +39,7 @@ int main (void)
     t_seconds = Clock.get_seconds();
     
     std::cout << "\nManual delay of additional 90 ms (total 100 ms):\n"
-        << "Nanos= " << t_ns
+        << "Nanos = " << t_ns
         << "\tMillis = " << t_millis
         << "\tSeconds = " << t_seconds
         << std::endl;
@@ -63,6 +63,23 @@ int main (void)
     std::cout << "Total run time: " 
         << Clock.get_seconds() << " seconds or " 
         << Clock.get_millis() << " ms" 
+        << Clock.get_ns() << " ns" 
+        << std::endl;
+
+    Clock.reset();
+    Clock.init_timer();
+    for (int i = 0; i < 1000; i++)
+    {
+        usleep(sleep_millis * 1000);
+        dt = Clock.get_dt();
+        dt_millis = Clock.get_dt_millis();
+        std::cout << "Run " << i << " :" << dt << " seconds or "
+            << dt_millis << " ms"
+            << std::endl;    
+    }
+    std::cout << "Total run time: " 
+        << Clock.get_seconds() << " seconds or \n" 
+        << Clock.get_millis() << " ms or \n" 
         << Clock.get_ns() << " ns" 
         << std::endl;
 

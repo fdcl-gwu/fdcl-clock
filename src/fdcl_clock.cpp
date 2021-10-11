@@ -37,12 +37,12 @@ void fdcl::Clock::reset(void)
 }
 
 
-double fdcl::Clock::get_ns(void)
+unsigned long long fdcl::Clock::get_ns(void)
 {
-    double t;
+    unsigned long long t;
     clock_gettime(CLOCK_REALTIME, &tspec_curr_);
-    t = ((double)tspec_curr_.tv_sec \
-        + ((double)tspec_curr_.tv_nsec) / 1.0e9) * 1.0e9;
+    t = ((unsigned long long)tspec_curr_.tv_sec * 1.0e9 \
+        + ((unsigned long long)tspec_curr_.tv_nsec));
     t -= t0_ns_;
 
     return t;

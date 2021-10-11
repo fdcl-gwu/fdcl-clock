@@ -44,7 +44,7 @@ public:
      * Return the time since epoch, in nanoseconds.
      * \return t Time since epoch, in nanoseconds.
      */
-    double get_ns(void);
+    unsigned long long get_ns(void);
 
     /** \fn double get_millis(void)
      * Return the time since epoch, in milliseconds.
@@ -104,8 +104,8 @@ private:
     
     std::string clock_name_ = "FDCL::Clock";  /**< Name of the clock. */
 
-    double t0_ns_ = 0.0;  /**< Initial time, which is set when the class
-        * is initialized or reset, in nanoseconds.
+    unsigned long long t0_ns_ = 0;  /**< Initial time, which is set when the
+        *  class is initialized or reset, in nanoseconds.
         */
     double t0_millis_ = 0.0;  /**< Initial time, which is set when the class
         * is initialized or reset, in milliseconds.
