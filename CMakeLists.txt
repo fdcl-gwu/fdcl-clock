@@ -24,5 +24,5 @@ target_link_libraries(test_fdcl_clock
     fdcl_clock
 )
 target_compile_options(test_fdcl_clock
-  PUBLIC -Wall -o -lrt -lm -O3 -std=c++11
+  PUBLIC -Wall -lrt -lm -O3 -std=c++11
 )
