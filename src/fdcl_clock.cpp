@@ -21,7 +21,6 @@ fdcl::Clock::~Clock(void)
 
 void fdcl::Clock::init(void)
 {
-    std::cout << "Initalizing " << clock_name_ << " ..." << std::endl;
     this->reset();
 }
 
@@ -136,4 +135,10 @@ std::string fdcl::Clock::get_date(void)
     strftime(current_time, sizeof(current_time), "%Y%m%d", &tstruct);
 
     return current_time;
+}
+
+
+void fdcl::Clock::set_clock_name(const std::string &name)
+{
+    clock_name_ = name;
 }

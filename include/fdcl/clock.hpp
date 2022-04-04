@@ -98,6 +98,12 @@ public:
      */
     std::string get_date_time(void);
 
+    /** \fn void set_clock_name(const std::string &name)
+     * Set the name of the clock.
+     * @param[in] name Name of the clock
+     */
+    void set_clock_name(const std::string &name);
+
 private:
     struct timespec tspec_init_;  /**< Initial time data. */
     struct timespec tspec_curr_;  /**< Current time data. */
